@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<SCRIPT src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+</head>
+<body ng-app>
+<div data-ng-app="" data-ng-init="firstname='akhil'">
+<p>enter your name<input type="text" data-ng-model="firstname"></p>
+<p> you wrote:{{firstname}}</p>
+</div>
+<div  data-ng-init="qty=5;price=35">
+quantity:<input type="text" data-ng-model="qty"><br>
+price:<input type="type" data-ng-model="price"><br>
+total cost:{{qty*price}}
+</div>
+<div data-ng-init="name=['aaa','aa','dd']">
+<ul>
+<li data-ng-repeat ="x in name">{{x}}</li>
+</ul>
+</div>
+
+</font>
+</body>
+</html>

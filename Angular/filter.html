@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<SCRIPT src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myapp" ng-controller="filterCtrl">
+{{fname | uppercase}}<br>
+{{fname | lowercase}}<br>
+{{salary | currency}}
+</div>
+<script>
+angular.module("myapp",[]).controller("filterCtrl",function($scope){
+$scope.fname="akhil";
+$scope.salary=500;
+});
+</script>
+</body>
+</html>
+
