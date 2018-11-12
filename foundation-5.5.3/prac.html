@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<title>customfurnish</title>
+<link rel="stylesheet" href="css/foundation.css" />
+<link rel="stylesheet" href="css/foundation.min.css" />
+<link rel="stylesheet" href="css/normalize.css" />
+<link rel="stylesheet" href="css/one.css" />
+<script src="js/vendor/modernizr.js"></script>
+<style>
+  h2 { color: green; };
+  #sidebar h2 { color: inherit; }<
+</style>
+</head>
+<body>
+  <div style="color:red;position:relative;top:-5px;"data-reveal-id="myModal" ><img src="https://d32e2cg1dqah35.cloudfront.net/static/img/home-page/header/header-user.png">Sign in/Sign up</div>
+  <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <form data-abide>
+      <div>
+        <label>Your name <small>required</small>
+          <input type="text" required pattern="[a-zA-Z]+">
+        </label>
+        <small class="error">Name is required and must be a string.</small>
+      </div>
+      <div class="email-field">
+        <label>Email <small>required</small>
+          <input type="email" required>
+        </label>
+        <small class="error">An email address is required.</small>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+
+
+
+
+  <div class="off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+      <nav class="tab-bar">
+        <section class="left-small">
+
+          <a  data-dropdown="drop1" aria-controls="drop1" aria-expanded="false"><span></span></a>
+        </section>
+
+
+      </nav>
+
+      <aside class="left-off-canvas-menu">
+        <ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+          <li><a href="#">This is a link</a></li>
+          <li><a href="#">This is another</a></li>
+          <li><a href="#">Yet another</a></li>
+        </ul>
+      </aside>
+
+
+
+
+
+
+    <a class="exit-off-canvas"></a>
+
+    </div>
+  </div>
+
+  <form data-abide>
+    <div class="name-field">
+      <label>Your name <small>required</small>
+        <input type="text" required pattern="[a-zA-Z]+">
+      </label>
+      <small class="error">Name is required and must be a string.</small>
+    </div>
+    <div class="email-field">
+      <label>Email <small>required</small>
+        <input type="email" required>
+      </label>
+      <small class="error">An email address is required.</small>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false">Has Dropdown</a>
+  <ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+    <li><a href="#">This is a link</a></li>
+    <li><a href="#">This is another</a></li>
+    <li><a href="#">Yet another</a></li>
+  </ul>
+
+<script src="js/vendor/jquery.js"></script>
+<script src="js/foundation.min.js"></script>
+<script>
+$(document).foundation();
+</script>
+</body>
+<section class="main-section">
+  <!-- content goes here -->
+</section>

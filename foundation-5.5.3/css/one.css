@@ -1,0 +1,66 @@
+.icon{
+    list-style-type:none;
+    font-family:sans-serif;
+    font-size:13px;
+    color:black;
+}
+.icon li{
+  display:inline;
+  float: right;
+  padding-left:1.2%;
+
+
+
+}
+.rowwidth {
+  max-width: 71rem;
+
+}
+.smallheader input{
+  width:50%;
+}
+.smallheader p{
+font-size:18px;
+}
+.pos li{
+  position:relative;top:-25px;
+
+}
+#cart{
+  color: black;
+  float:right;
+  padding-top: 10px;
+}
+.congrid p{
+  color:#463d38;
+  font-size: 18px;
+  font-weight:400;
+
+}
+
+#inptyp input{
+  width:80% ;
+  height:40% !important;
+  margin-top:5px;
+}
+
+th td{
+  padding:154px;
+}
+
+#hr{
+padding-top:-10px;
+color: red;
+}
+.header {
+  padding-top:1%:
+  list-style-type:none;
+  display:inline;
+}
+.header li{
+  display:inline;
+  padding-right:2%;
+  font-size:13px;
+}
+.header li a {
+  color:black;
