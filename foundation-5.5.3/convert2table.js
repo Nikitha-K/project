@@ -33,7 +33,7 @@ return $table;
 function deletefun(obj) {
     jdata1.splice(obj.id, 1);
     localStorage.setItem("formdata", JSON.stringify(jdata1));
-    ConvertToTable();
+    ConvertToTable(true);
 }
 
 function updatefun(obj) {
@@ -100,7 +100,7 @@ function updateelement() {
         jdata1[id].mobile = mobile;
         jdata1[id].mail = email;
         localStorage.setItem("formdata", JSON.stringify(jdata1));
-        ConvertToTable();
+        ConvertToTable(true);
 
     }
     $("#updateform").trigger('reset');
