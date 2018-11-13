@@ -1,6 +1,6 @@
 var jdata1 = [];
 var id;
-function ConvertToTable() {
+function ConvertToTable(flag) {
     var jdata = localStorage.getItem("formdata");
     jdata1 = JSON.parse(jdata);
     var $table = $('<table/>');
@@ -11,21 +11,22 @@ function ConvertToTable() {
     }
     $table.append($headerTr);
     for (var i = 0; i < jdata1.length; i++) {
-        
+
         var $tableTr = $('<tr/>');
 
         for (var index in jdata1[i]) {
             $tableTr.append($('<td/>').html(jdata1[i][index]));
         }
+        if(flag){
         $tableTr.append("<td><button id='" + i + "' onclick='deletefun(this)'>delete</button></td>");
 
         $tableTr.append("<td><a href='#' data-reveal-id='myupdate'><button style='color:black;'id='" + i + "' onclick='updatefun(this)'>update</button></a></td>")
-
+        }
         $table.append($tableTr);
     }
     $("#displaytable").html($table);
     console.log(jdata);
-
+return $table;
 }
 
 
@@ -45,7 +46,7 @@ function updatefun(obj) {
 }
 
 function updateelement() {
-   
+
     var b = true;
     var myForm = document.getElementById('updateform');
     var formData = new FormData(myForm);
@@ -95,11 +96,9 @@ function updateelement() {
             result[entry[0]] = entry[1];
         }
 
-
-        jdata1.splice(id, 0, result);
-        id++;
-        jdata1.splice(id, 1);
-
+        jdata1[id].name = name;
+        jdata1[id].mobile = mobile;
+        jdata1[id].mail = email;
         localStorage.setItem("formdata", JSON.stringify(jdata1));
         ConvertToTable();
 
@@ -112,10 +111,10 @@ function updateelement() {
 function searchdata() {
     var s = $("#searchrow").val();
 
-   
+
     var i;
     var sd;
-   
+
     for (i = 0; i < jdata1.length; i++) {
         sd = jdata1[i];
         if (sd.name == s) {

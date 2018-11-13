@@ -26,10 +26,11 @@ function uploadcsv() {
 
                     }
                 }
-                $("#dataupload").text("completed check out view all for complete list");
-
+                var table=ConvertToTable(false);
+             
                 localStorage.setItem("formdata", JSON.stringify(data));
                
+                $("#dataupload").append(table);
 
             }
             reader.readAsText($("#fileUpload")[0].files[0]);
