@@ -3,6 +3,7 @@ var id;
 function ConvertToTable(flag) {
     var jdata = localStorage.getItem("formdata");
     jdata1 = JSON.parse(jdata);
+    if(jdata1!=null){
     var $table = $('<table/>');
     var $headerTr = $('<tr/>');
     for (var index in jdata1[0]) {
@@ -27,6 +28,9 @@ function ConvertToTable(flag) {
     $("#displaytable").html($table);
     console.log(jdata);
 return $table;
+    }else{
+        alert("no values")
+    }
 }
 
 
@@ -53,15 +57,14 @@ function updateelement() {
     var name = formData.get('name');
     var email = formData.get('mail');
     var mobile = formData.get('mobile');
-    var d = data[id];
+
+    var d = jdata1[id];
     $.each(jdata1, function (key, value) {
         if (d.name != name) {
             if (name == value.name) {
-                $("#uerr1").text("name should be unique");
+                alert("name should be unique");
                 b = false;
-            } else {
-                $("#uerr1").text("");
-            }
+            } 
         }
 
     });
@@ -101,10 +104,10 @@ function updateelement() {
         jdata1[id].mail = email;
         localStorage.setItem("formdata", JSON.stringify(jdata1));
         ConvertToTable(true);
-
+        $("#updateform").trigger('reset');
     }
-    $("#updateform").trigger('reset');
-
+   
+   
 
 }
 
@@ -131,6 +134,8 @@ function searchdata() {
 
         $('#displaytable1').html('<table><tr><td>' + sd.name + '</td><td>' + sd.mobile + '</td><td>' + sd.mail + '</td></tr></table>');
 
+    }else{
+        alert("no data found");
     }
 }
 

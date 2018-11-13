@@ -1,8 +1,8 @@
 
-var data = [];
-data = JSON.parse(localStorage.getItem("formdata"));
+
 
 function uploadcsv() {
+ var data = JSON.parse(localStorage.getItem("formdata"));
     var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
     if (regex.test($("#fileUpload").val().toLowerCase())) {
         if (typeof (FileReader) != "undefined") {
@@ -21,16 +21,21 @@ function uploadcsv() {
                         customer.mail = cells[2];
                         b = validform(cells[0],cells[1],cells[2]);
                         if (b) {
-                            data.push(customer);
+                            if(data!=null){                            
+                                data.push(customer);
+                            }else{
+                                data=[customer];
+                            }
+                            
                         }
 
                     }
                 }
-                var table=ConvertToTable(false);
+               
              
                 localStorage.setItem("formdata", JSON.stringify(data));
-               
-                $("#dataupload").append(table);
+                var table=ConvertToTable(false);
+                $("#dataupload").html(table);
 
             }
             reader.readAsText($("#fileUpload")[0].files[0]);

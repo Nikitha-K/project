@@ -5,6 +5,7 @@ function ConvertToCSV() {
 
   var jData;
   jData = JSON.parse(localStorage.getItem("formdata"));
+  if(jData!=null){
   var delimiter = ',';
   var fileName = "mydata";
   var ShowHeader = true;
@@ -43,4 +44,7 @@ function ConvertToCSV() {
   $('body').append(link);
   link.click();
   $('body').remove(link);
+}else{
+  alert("empty data");
+}
 }

@@ -1,12 +1,11 @@
 function validform(name,mobile,mail){
     var data = [];
-var check=localStorage.getItem("formdata");
-data = JSON.parse(check);
+data = JSON.parse(localStorage.getItem("formdata"));
     var b=true;
-    if(check!=null)
+    if(data!=null)
     $.each(data, function (key, value) {
         if (name == value.name) {
-            $("#err1").text("name should be unique");
+        alert("name should be unique");
             b = false;
         }
 
