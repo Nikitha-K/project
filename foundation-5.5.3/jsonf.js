@@ -25,6 +25,11 @@ function insert() {
         $("#myForm").trigger('reset');
     }
 }
+function hidevalidation(){
+    $("#err1").text("");
+    $("#err2").text("");
+    $("#err3").text("");
+}
 
 
 
