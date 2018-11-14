@@ -17,6 +17,7 @@ function ConvertToTable(flag) {
 
         for (var index in jdata1[i]) {
             $tableTr.append($('<td/>').html(jdata1[i][index]));
+            
         }
         if(flag){
         $tableTr.append("<td><button id='" + i + "' onclick='deletefun(this)'>delete</button></td>");
@@ -29,7 +30,7 @@ function ConvertToTable(flag) {
     console.log(jdata);
 return $table;
     }else{
-        alert("no values")
+        alert("data is empty");
     }
 }
 
@@ -105,6 +106,7 @@ function updateelement() {
         localStorage.setItem("formdata", JSON.stringify(jdata1));
         ConvertToTable(true);
         $("#updateform").trigger('reset');
+        alert("updated");
     }
    
    
@@ -113,11 +115,11 @@ function updateelement() {
 
 function searchdata() {
     var s = $("#searchrow").val();
-
+   jdata1=JSON.parse(localStorage.getItem("formdata"));
 
     var i;
     var sd;
-
+if(jdata1!=null){
     for (i = 0; i < jdata1.length; i++) {
         sd = jdata1[i];
         if (sd.name == s) {
@@ -130,6 +132,7 @@ function searchdata() {
             break;
         }
     }
+
     if (i < jdata1.length) {
 
         $('#displaytable1').html('<table><tr><td>' + sd.name + '</td><td>' + sd.mobile + '</td><td>' + sd.mail + '</td></tr></table>');
@@ -137,5 +140,9 @@ function searchdata() {
     }else{
         alert("no data found");
     }
+}else{
+    alert("data is empty");
+}
+$("#formsearch").trigger('reset');
 }
 

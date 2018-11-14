@@ -8,13 +8,10 @@ function uploadcsv() {
         if (typeof (FileReader) != "undefined") {
             var reader = new FileReader();
             reader.onload = function (e) {
-               
                 var rows = e.target.result.split("\r\n");
                 for (var i = 0; i < rows.length; i++) {
                     var cells = rows[i].split(",");
-
-                    if (cells.length == 3) {
-                      
+                    if (cells.length == 3) { 
                         var customer = {};
                         customer.name = cells[0];
                         customer.mobile = cells[1];
@@ -46,5 +43,5 @@ function uploadcsv() {
         alert("Please upload a valid CSV file.");
     }
 
-  
+    $("#fileUpload").val("");
 }

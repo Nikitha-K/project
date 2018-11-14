@@ -45,6 +45,6 @@ function ConvertToCSV() {
   link.click();
   $('body').remove(link);
 }else{
-  alert("empty data");
+  alert("data is empty");
 }
 }

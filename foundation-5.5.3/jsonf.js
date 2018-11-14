@@ -20,7 +20,7 @@ function insert() {
         }else{
             data=[result];
         }
-        $("#done").text("completed");
+       alert("inserted");
         localStorage.setItem("formdata", JSON.stringify(data));
         $("#myForm").trigger('reset');
     }
