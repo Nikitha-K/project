@@ -31,10 +31,10 @@
     <div class="row">
         <ul class="button-group round even-5">
             <li><a href="#" data-reveal-id="myModal" onclick="hidevalidation()" class="button">Add Details</a></li>
-            <li><a href="#" data-reveal-id="viewall" class="button" onclick="ConvertToTable(true)">View All</a></li>
+            <li ><a href="#" data-reveal-id="viewall"  class="button" onclick="ConvertToTable(true)">View All</a></li>
             <li><a href="#" id="button1" class="button" onclick="ConvertToCSV()">Get data </a></li>
-            <li><a href="#" data-reveal-id="mysearch" class="button">search data</a></li>
-            <li><a href="#" data-reveal-id="myupload" class="button">upload files</a></li>
+            <li><a href="#" data-reveal-id="mysearch" onclick="$('#displaytable1').text('');" class="button">search data</a></li>
+            <li><a href="#" data-reveal-id="myupload" class="button" onclick="$('#dataupload').text('');">upload files </a></li>
         </ul>
 
     </div>
@@ -49,7 +49,7 @@
         <input type="button" id="upload" value="Upload" onclick="uploadcsv()" />
         <div id="dataupload">
         </div>
-        <a class="close-reveal-modal" aria-label="Close" onclick="$('#dataupload').text('');">&#215;</a>
+        <a class="close-reveal-modal" aria-label="Close" >&#215;</a>
     </div>
 
     <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
@@ -66,7 +66,7 @@
         </form>
         <button id="insertelement" onclick="insert()">submit</button>
         <p id="done"></p>
-        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+        <a class="close-reveal-modal" aria-label="Close" >&#215;</a>
 
     </div>
 
@@ -81,7 +81,7 @@
 
             </div>
         </div>
-        <a class="close-reveal-modal" aria-label="Close" onclick="$('#displaytable1').text('');">&#215;</a>
+        <a class="close-reveal-modal" aria-label="Close" >&#215;</a>
     </div>
 
     <div id="myupdate" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
@@ -97,14 +97,20 @@
             <p id="uerr3"></p>
         </form>
         <button onclick="updateelement()">submit</button>
-        <a class="close-reveal-modal" aria-label="Close" onclick="hidevalidationupdate()">&#215;</a>
+        <a id ="close" class="close-reveal-modal" aria-label="Close" >&#215;</a>
     </div>
+    <center>
+        <divc id="showupdatedlist">
+
+        </div>
+    </center>
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation/foundation.js"></script>
     <script src="js/foundation/foundation.reveal.js"></script>
     <script>
         $(document).foundation();
+
     </script>
 </body>
 </html>

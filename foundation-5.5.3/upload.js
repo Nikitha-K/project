@@ -16,7 +16,7 @@ function uploadcsv() {
                         customer.name = cells[0];
                         customer.mobile = cells[1];
                         customer.mail = cells[2];
-                        b = validform(cells[0],cells[1],cells[2]);
+                        b = validform(cells[0],cells[1],cells[2],"insert");
                         if (b) {
                             if(data!=null){                            
                                 data.push(customer);

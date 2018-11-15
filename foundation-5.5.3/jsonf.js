@@ -8,7 +8,7 @@ function insert() {
     var name = formData.get('name');
     var mail = formData.get('mail');
     var mobile = formData.get('mobile');
-    var b = validform(name, mobile, mail);
+    var b = validform(name, mobile, mail,-1);
     if (b) {
         var result = {};
         for (var entry of formData.entries()) {
