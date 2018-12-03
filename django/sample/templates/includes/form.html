@@ -1,0 +1,28 @@
+{% load  widget_tweaks %}
+
+ {% for field in forms %}
+
+    {{ field.label_tag }}
+
+    {% if forms.is_bound %}
+      {% if field.errors %}
+        {% render_field field  %}
+        {% for error in field.errors %}
+          <div>
+            {{ error }}
+          </div>
+        {% endfor %}
+      {% else %}
+        {% render_field field  %}
+      {% endif %}
+    {% else %}
+      {% render_field field %}
+    {% endif %}
+
+    {% if field.help_text %}
+      <small class="form-text text-muted">
+        {{ field.help_text|safe }}
+      </small>
+    {% endif %}
+ {% endfor %}
+<br>

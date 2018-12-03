@@ -1,0 +1,29 @@
+{% extends "employeebase.html" %}
+{% block body %}
+<div class="row">
+<center>
+    <h2>Employee List</h2>
+<table>
+    <tr>
+        <th>name</th>
+        <th>mobile</th>
+        <th>email</th>
+        <th>delete</th>
+        <th>update</th>
+    </tr>
+{% for emp in emplist %}
+<tr>
+    <td>{{emp.name}}</td>
+    <td>{{emp.mobile}}</td>
+    <td>{{emp.gmail}}</td>
+    <td><button id ="{{emp.id}}" onclick="deletefunction(this)"><span style="color:white;">delete</span></button></td>
+    <td><a href="/employee/update/{{emp.id}}"><button ><span style="color:white;">update</span></button></a></td>
+</tr>
+{% endfor %}
+</table>
+<a href="/employee/"><button style="background-color:black;"><span style="color:white;">Back To Home</span></button></a>
+
+    </center>
+    </div>
+
+{% endblock %}

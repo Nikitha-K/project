@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+start a new topic
+{% endblock %}
+
+{% block content %}
+<ul class="inline-list">
+    <li><a href="{% url 'home1' %}">Boards /</a></li>
+    <li><a href="{% url 'Board_Topic'  Board.id %}">{{Board.name}}/</a></li>
+    <li><a>New Topic</a></li>
+</ul>
+
+<form method="post">
+    {% csrf_token %}
+    {% include 'includes/form.html' %}
+    <button type="submit">Post</button>
+
+</form>
+
+{% endblock %}

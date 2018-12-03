@@ -1,0 +1,20 @@
+.nav{
+    background-color: #003f54;
+    font-family:"Helvetica Neue", Helvetica, Roboto, Arial, sans-serif ;
+}
+.nav h2 {
+     color: white;
+     width:50%
+}
+#userpanel a{
+color: white;
+text-align:right;
+}
+
+
+.tableheader th{
+    background-color: #003f54;
+    font-family:"Helvetica Neue", Helvetica, Roboto, Arial, sans-serif ;
+    color:white;
+
+}

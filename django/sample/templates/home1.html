@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<table border="1" style="width:100%;">
+
+    <tr>
+        <th>Board</th>
+        <th>Topic</th>
+        <th>Posts</th>
+        <th>Last Post</th>
+    </tr>
+    {% for board in Boards %}
+    <tr>
+        <td>
+            <a href="/webapp/boards/{{board.id}}/">{{board.name}}</a><br>
+            <small style="color: #888">{{ board.description }}</small>
+
+        </td>
+        <td>0</td>
+        <td>0</td>
+        <td></td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
+
+

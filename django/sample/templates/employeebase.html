@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/jsonf.js' %}"></script>
+    <script src="{% static 'js/upload.js' %}"></script>
+    <script src="{% static 'js/convert2table.js' %}"></script>
+    <script src="{% static 'js/validationform.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/marioizquierdo/jquery.serializeJSON/jquery.serializejson.js"></script>
+    <link rel="stylesheet" href="{% static 'css/foundation.css' %}">
+    <link rel="stylesheet" href="{% static 'css/foundation.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        table, th, td {
+    border: 1px solid black;
+}
+form{
+width:50%;
+}
+
+    </style>
+
+</head>
+
+<body>
+
+{% block body %}
+
+<H2 style="text-align:center"> Employee Portal</H2>
+
+
+<div class="row">
+    <ul class="button-group round even-5">
+        <li><a href="#" data-reveal-id="myModal" onclick="hidevalidation()" class="button">Add Details</a></li>
+        <li><a href="{% url 'viewall' %}" class="button">View All</a></li>
+        <li><a href="{% url 'download' %}" id="button1" class="button">Get data </a></li>
+        <li><a href="#" data-reveal-id="mysearch" onclick="$('#displaytable1').text('');" class="button">search data</a>
+        </li>
+        <li><a href="#" data-reveal-id="myupload" class="button" onclick="$('#dataupload').text('');">upload files </a>
+        </li>
+    </ul>
+    <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <form id="myForm" class="inputwidth" method="POST">
+            <label>name:</label>
+            <input id="name" name="name" type="text"><br>
+            <p id="err1"></p>
+            <label>mobile:</label>
+            <input id="mobile" name="mobile" type="text"><br>
+            <p id="err2"></p>
+            <label>email:</label>
+            <input id="mail" name="mail" type="text"><br>
+            <p id="err3"></p>
+
+        </form>
+        <button id="insertelement" type="submit" onclick="insert()">submit</button>
+
+
+        <p id="done"></p>
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+
+    </div>
+    <div id="myupload" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        {% if messages %}
+        {% for message in messages %}
+        <script>
+            alert( "{{ message|safe }}");
+
+        </script>
+
+        {% endfor %}
+        {% endif %}
+        <br>
+        <strong>the order of csv data should be of name,mobile,gmail</strong>
+        <form action="/employee/upload/" method="post" enctype="multipart/form-data">
+            <input type="file" id="fileUpload" name="file"/><br>
+            <input type="submit" id="upload" value="Upload"/>
+        </form>
+
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+
+
+    <div id="mysearch" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <div>
+            <form id="formsearch" action="/employee/search/" method="post">
+                <input style="max-width:50%;" name="search" type="text" id="search" placeholder="search">
+                <p id="errsearch"></p>
+                <button id="searchbutton" hidden>search</button>
+
+            </form>
+            <button onclick="searchfunction()">search</button>
+        </div>
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+
+
+    {% block content %}
+    {% endblock %}
+
+</div>
+
+{% endblock %}
+
+<script src="{% static 'js/vendor/jquery.js' %}"></script>
+<script src="{% static 'js/foundation/foundation.js'%}"></script>
+<script src="{% static 'js/foundation/foundation.reveal.js'%}"></script>
+<script>
+
+$( document ).ready();
+        $(document).foundation();
+
+        {% block script %}
+
+         {% endblock %}
+
+
+</script>
+
+
+</body>
+
+</html>

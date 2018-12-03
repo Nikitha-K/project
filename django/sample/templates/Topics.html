@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}
+
+{{ Board.name }} - {{ block.super }}
+
+{% endblock %}
+
+{% block content %}
+<ul class="inline-list">
+  <li><a href="{% url 'home1' %}">Boards /</a></li>
+  <li><a href="#">{{Board.name}}</a></li>
+</ul>
+
+<a href="{% url 'new_topic' Board.id %}"><button> New Topic</button></a>
+
+<table class="tableheader">
+    <tr>
+        <th>Topic</th>
+        <th>Starter</th>
+        <th>Replies</th>
+        <th>Views</th>
+        <th>Last Update</th>
+    </tr>
+    {% for Topic in Board.topics.all %}
+    <tr>
+        <td>{{Topic.subject}}</td>
+        <td>{{Topic.starter.username}}</td>
+        <td>0</td>
+        <td>0</td>
+        <td>{{Topic.last_updated}}</td>
+    </tr>
+    {% endfor %}
+</table >
+
+{% endblock %}
+
+

@@ -1,0 +1,26 @@
+{% extends "employeebase.html" %}
+{% block body %}
+<div class="row">
+    <h2>Update Employee</h2>
+    <div style="border-style: double;width:50%">
+        <form id="updateform" style="width:90%;padding-left:1rem;padding-top:1rem;">
+            <label>name:</label>
+            <input id="nameupdate" name="name" value="{{emp.name}}" type="text"><br>
+            <p id="uerr1"></p>
+            <label>mobile:</label>
+            <input id="mobileupdate" name="mobile" value="{{emp.mobile}}" type="text"><br>
+            <p id="uerr2"></p>
+            <label>email:</label>
+            <input id="mailupdate" name="mail" value="{{emp.gmail}}" type="text" readonly><br>
+            <p id="uerr3"></p>
+        </form>
+        <div style="padding-left:1rem;">
+            <button id="updatebutton" onclick="updateelement()">submit</button>
+            <a style="float:right;padding-right:1rem;" href="/employee/viewall">
+                <button style="background-color:black;"><span style="color:white;">Back To Viewall</span></button>
+            </a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
